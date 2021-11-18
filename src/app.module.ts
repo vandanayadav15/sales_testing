@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemListModule } from './module/item_list/item_list.module';
 import { SalesItemsModule } from './module/sales_items/sales_items.module';
 import { SalesOrdersModule } from './module/sales_orders/sales_orders.module';
+import { PurchaseInvoiceModule } from './module/purchase_invoice/purchase_invoice.module';
+import { PurchaseItemModule } from './module/purchase_item/purchase_item.module';
+import { PurchaseItemListModule } from './module/purchase_item_list/purchase_item_list.module';
 
 @Module({
   imports: [
@@ -23,6 +26,9 @@ import { SalesOrdersModule } from './module/sales_orders/sales_orders.module';
     ItemListModule,
     SalesItemsModule,
     SalesOrdersModule,
+    PurchaseInvoiceModule,
+    PurchaseItemModule,
+    PurchaseItemListModule,
   ],
   controllers: [AppController],
   providers: [AppService],

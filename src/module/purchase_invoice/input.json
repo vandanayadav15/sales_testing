@@ -1,0 +1,41 @@
+
+{
+    "data": {
+        "id":"",            
+        "companyName":"",       
+        "discount":"0", 
+        "billTo":"",
+        "price":"",
+        "totalAmount":0.0,
+        "taxAmount" :0.0,   
+        "taxPercentage":0.0,
+        "quantity":"1",
+        "purchaseItems": [
+            {
+                "id":"",             
+                "purchaseItemListId" :{ "id" :""},  
+                "purchaseItemId":"",
+                "price":"100",          
+                "quantity":"1",       
+                "discount":"0",       
+                "taxPercentage":0.0, 
+                "taxAmount":0.0,
+                 "amount":200                  
+            },
+            {
+                "id":"",             
+                "purchaseItemListId" :{ "id" :""},  
+                "purchaseItemId":"",
+                "price":"100",          
+                "quantity":"1",       
+                "discount":"0",       
+                "taxPercentage":0.0, 
+                "taxAmount":0.0,
+                 "amount":200                   
+         
+            }
+        ]        
+    }
+ }
+
+ 
