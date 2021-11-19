@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('purchase_item_list')
-export class PurchaseItemList {
+@Entity('stock_item')
+export class StockItem {
   @PrimaryColumn({ name: 'id' })
   id: string;
 

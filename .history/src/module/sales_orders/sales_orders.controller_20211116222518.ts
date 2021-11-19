@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Post, Put } from '@nestjs/common';
-import { AnyInput } from '../../common/any.input';
+import { AnyInput } from 'src/common/any.input';
 import { SalesOrdersService } from './sales_orders.service';
 
 @Controller('/sales_orders')

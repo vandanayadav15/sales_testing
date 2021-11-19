@@ -3,18 +3,18 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { App } from 'src/common/App';
 import { Props } from 'src/constants/Props';
 import { Repository } from 'typeorm';
-import { PurchaseItemList } from './purchase_item_list.entity';
+import { SalesItems } from './sales_items.entity';
 
 @Injectable()
-export class PurchaseItemListService {
-  @InjectRepository(PurchaseItemList)
-  private purchaseItemListRepository: Repository<PurchaseItemList>;
+export class SalesItemsService {
+  @InjectRepository(SalesItems)
+  private salesItemsRepository: Repository<SalesItems>;
   constructor() {}
 
   async entity(id: any) {
     try {
       let query: any = { id: id, active: true };
-      let data: any = await this.purchaseItemListRepository.findOne(query, {
+      let data: any = await this.salesItemsRepository.findOne(query, {
         relations: [],
       });
       return data ? data : null;
@@ -27,7 +27,7 @@ export class PurchaseItemListService {
     try {
       let query = item;
       query.active = true;
-      let data = await this.purchaseItemListRepository.find({
+      let data = await this.salesItemsRepository.find({
         relations: [],
         where: query,
       });
@@ -37,12 +37,10 @@ export class PurchaseItemListService {
     }
   }
 
-  async save(item: PurchaseItemList) {
+  async save(item: SalesItems) {
     try {
       await this.validate(item);
-      let purchaseitemListData = await this.purchaseItemListRepository.save(
-        item,
-      );
+      let salesItemsData = await this.salesItemsRepository.save(item);
       let returnData = { id: item.id, message: Props.SAVED_SUCCESSFULLY };
       return returnData;
     } catch (error) {
@@ -52,11 +50,11 @@ export class PurchaseItemListService {
 
   async delete(id: any) {
     try {
-      let data: any = await this.purchaseItemListRepository.findOne(id);
+      let data: any = await this.salesItemsRepository.findOne(id);
       if (!data) throw { message: Props.RECORD_NOT_EXISTS };
       data.active = !data.active;
 
-      let result: any = await this.purchaseItemListRepository.save(data);
+      let result: any = await this.salesItemsRepository.save(data);
       let returnData = { id: id, message: Props.REMOVED_SUCCESSFULLY };
       return returnData;
     } catch (error) {
@@ -64,12 +62,12 @@ export class PurchaseItemListService {
     }
   }
 
-  async validate(item: PurchaseItemList) {
+  async validate(item: SalesItems) {
     let previousItem: any = null;
     if (!item.id || item.id.toString() == '' || item.id.toString() == '0') {
       item.id = null;
     } else {
-      previousItem = await this.purchaseItemListRepository.findOne(item.id);
+      previousItem = await this.salesItemsRepository.findOne(item.id);
       if (previousItem) {
         item.id = previousItem.id;
       } else {

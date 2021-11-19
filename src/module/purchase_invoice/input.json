@@ -2,19 +2,19 @@
 {
     "data": {
         "id":"",            
-        "companyName":"",       
-        "discount":"0", 
-        "billTo":"",
-        "price":"",
+        "companyName":"Max",        
+        "billTo":"vandana",
+        "price":"0.0",
+        "discount":"0.0",
         "totalAmount":0.0,
         "taxAmount" :0.0,   
         "taxPercentage":0.0,
-        "quantity":"1",
-        "purchaseItems": [
+        "quantity":0,
+        "purchaseItem": [
             {
                 "id":"",             
-                "purchaseItemListId" :{ "id" :""},  
-                "purchaseItemId":"",
+                "stockItemId" :{"id":"1b3c2aaf-d669-4e6b-8060-96a883e022e2"},  
+                "purchaseInvoiceId":"",
                 "price":"100",          
                 "quantity":"1",       
                 "discount":"0",       
@@ -23,19 +23,18 @@
                  "amount":200                  
             },
             {
-                "id":"",             
-                "purchaseItemListId" :{ "id" :""},  
-                "purchaseItemId":"",
+               "id":"",             
+                "stockItemId" :{"id":"1b3c2aaf-d669-4e6b-8060-96a883e022e2"},  
+                "purchaseInvoiceId":"",
                 "price":"100",          
                 "quantity":"1",       
                 "discount":"0",       
                 "taxPercentage":0.0, 
                 "taxAmount":0.0,
-                 "amount":200                   
+                 "amount":200                            
          
             }
         ]        
     }
  }
-
  

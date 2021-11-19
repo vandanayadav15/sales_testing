@@ -3,7 +3,7 @@ import { identity } from 'rxjs';
 import { AnyInput } from 'src/common/any.input';
 import { PurchaseInvoiceService } from './purchase_invoice.service';
 
-@Controller('/purchase_invoice')
+@Controller('/purchaseInvoice')
 export class PurchaseInvoiceController {
   constructor(private purchaseInvoiceService: PurchaseInvoiceService) {}
   @Post('/search')

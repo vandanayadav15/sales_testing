@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { App } from '../../common/App';
-import { Props } from '../../constants/Props';
+import { App } from 'src/common/App';
+import { Props } from 'src/constants/Props';
 import { Repository, Transaction, TransactionRepository } from 'typeorm';
 import { SalesItems } from '../sales_items/sales_items.entity';
 import { SalesOrders } from './sales_orders.entity';

@@ -1,9 +1,9 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
-import { PurchaseInvoice } from '../purchase_invoice/purchase_invoice.entity';
-import { StockItem } from '../stock_item/stock_item.entity';
+import { ItemList } from '../item_list/item_list.entity';
+import { SalesOrders } from '../sales_orders/sales_orders.entity';
 
-@Entity('purchase_item')
-export class PurchaseItem {
+@Entity('sales_items')
+export class SalesItems {
   @PrimaryColumn({ name: 'id' })
   id: string;
 
@@ -13,17 +13,20 @@ export class PurchaseItem {
   @Column({ name: 'quantity' })
   quantity: string;
 
+  @Column({ name: 'discount' })
+  discount: string;
+
   @Column({ name: 'tax_percentage' })
   taxPercentage: number;
 
   @Column({ name: 'tax_amount' })
-  taxAmount: string;
+  taxAmount: number;
 
   @Column({ name: 'amount' })
   amount: number;
 
   @Column({ name: 'active' })
-  active: Boolean;
+  active: boolean;
 
   @Column({ name: 'updated_by' })
   updatedBy: string;
@@ -37,11 +40,11 @@ export class PurchaseItem {
   @Column({ name: 'created_on' })
   createdOn: Date;
 
-  @JoinColumn({ name: 'stock_item_id' })
-  @ManyToOne((type) => StockItem)
-  stockItemId: StockItem;
+  @JoinColumn({ name: 'item_list_id' })
+  @ManyToOne((type) => ItemList)
+  itemListId: ItemList;
 
-  @JoinColumn({ name: 'purchase_invoice_id' })
-  @ManyToOne((type) => PurchaseInvoice)
-  purchaseInvoiceId: PurchaseInvoice;
+  @JoinColumn({ name: 'sales_orders_id' })
+  @ManyToOne((type) => SalesOrders)
+  salesOrder: SalesOrders;
 }

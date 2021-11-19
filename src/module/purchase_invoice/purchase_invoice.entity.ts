@@ -47,7 +47,7 @@ export class PurchaseInvoice {
 
   @OneToMany(
     (type) => PurchaseItem,
-    (purchaseItem) => purchaseItem.purchaseInvoice,
+    (purchaseItem) => purchaseItem.purchaseInvoiceId,
   )
   purchaseItem: PurchaseItem;
 }

@@ -16,11 +16,8 @@ export class PurchaseInvoiceService {
       let query: any = { id: id };
       let data = await this.purchaseInvoiceRepository
         .createQueryBuilder('PurchaseInvoice')
-        .leftJoinAndSelect('purchaseInvoice.purchaseItem', 'purchaseItem')
-        .leftJoinAndSelect(
-          'purchaseItem.purchaseItemListId',
-          'purchaseItemList',
-        )
+        .leftJoinAndSelect('PurchaseInvoice.purchaseItem', 'purchaseItem')
+        .leftJoinAndSelect('purchaseItem.stockItemId', 'stockItem')
         .getOne();
       return data ? data : null;
     } catch (error) {
@@ -36,10 +33,7 @@ export class PurchaseInvoiceService {
       let data = await this.purchaseInvoiceRepository
         .createQueryBuilder('PurchaseInvoice')
         .leftJoinAndSelect('PurchaseInvoice.purchaseItem', 'purchaseItem')
-        .leftJoinAndSelect(
-          'purchaseItem.purchaseItemListId',
-          'purchaseItemList',
-        )
+        .leftJoinAndSelect('purchaseItem.stockItemId', 'stockItem')
         .getMany();
       return data ? data : null;
     } catch (error) {
