@@ -1,5 +1,5 @@
 export let title: string = 'TITLE';
-export let port: number = 5004;
+export let port: number = 5000;
 export let swaggerVersion: string = '3.0';
 export const dbOptions: any = {
   name: 'default',

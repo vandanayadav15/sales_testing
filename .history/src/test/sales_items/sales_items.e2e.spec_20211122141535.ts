@@ -14,7 +14,7 @@ beforeAll(async () => {
 afterAll(async (done) => {
   done();
 });
-const salesOrdersData = {
+const salesItemsData = {
   data: {
     id: '',
     invoiceId: '',
@@ -53,7 +53,7 @@ describe('/save (POST)', () => {
   test('Assert if a new sales can be created with mandatory details', async () => {
     const receivedAPIResponse = await axiosAPIClient.post(
       'salesOrders/save',
-      salesOrdersData,
+      salesItemsData,
     );
     let expected = {
       data: {
@@ -72,8 +72,8 @@ describe('/save (POST)', () => {
       },
     };
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesItems/save',
-      salesOrdersData,
+      'salesOrders/save',
+      salesItemsData,
     );
     const received = receivedAPIResponse.data;
     if (received.error) {
@@ -81,21 +81,5 @@ describe('/save (POST)', () => {
     } else {
       expect(received).toMatchObject(expected);
     }
-  });
-
-  describe('/update (PUT)', () => {
-    test('Should update details', async () => {
-      const receivedAPIResponse = await axiosAPIClient.put(
-        'salesItems/update',
-        salesOrdersData,
-      );
-      let expected = {
-        data: {
-          message: 'Saved Successfully.',
-        },
-      };
-      const received = receivedAPIResponse.data;
-      expect(received).toMatchObject(expected);
-    }, 10000);
   });
 });

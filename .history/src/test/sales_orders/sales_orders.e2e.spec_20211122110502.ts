@@ -57,7 +57,7 @@ describe('/save (POST)', () => {
     );
     let expected = {
       data: {
-        id: 'ab6ffb3c-6744-4454-affb-2b936fba6d98',
+        id: 'beeac73e-e21a-413f-b1a9-e274a0bfff71',
         message: 'Saved Successfully.',
       },
     };
@@ -65,37 +65,57 @@ describe('/save (POST)', () => {
     expect(received).toMatchObject(expected);
   }, 10000);
   test('Assert if a new sales can be created without mandatory details', async () => {
-    let expected = {
+    let salesOrdersData = {
       data: {
-        id: 'ab6ffb3c-6744-4454-affb-2b936fba6d98',
+        id: 'beeac73e-e21a-413f-b1a9-e274a0bfff71',
         message: 'Saved Successfully.',
       },
     };
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesItems/save',
+      'salesOrders/save',
       salesOrdersData,
     );
     const received = receivedAPIResponse.data;
     if (received.error) {
       throw new Error('id is mandatory' + received.error.message);
     } else {
-      expect(received).toMatchObject(expected);
+      expect(received).toMatchObject(salesOrdersData);
     }
   });
-
-  describe('/update (PUT)', () => {
-    test('Should update details', async () => {
-      const receivedAPIResponse = await axiosAPIClient.put(
-        'salesItems/update',
-        salesOrdersData,
-      );
-      let expected = {
-        data: {
-          message: 'Saved Successfully.',
-        },
-      };
-      const received = receivedAPIResponse.data;
-      expect(received).toMatchObject(expected);
-    }, 10000);
-  });
 });
+//  test("Assert if a new cheque can be created without mandatory details", async () => {
+//     const chequesData = {
+//       //   data: {
+//       //     chequeDate: "2020-11-09T07:49:37.215Z",
+//       //     bankName: "xyz",
+//       //     bookid: 1,
+//       //     branch: "xyz",
+//       //     accountNumber: "xyz",
+//       //     accountName: "xyz",
+//       //     chequeNumberFrom: 1,
+//       //     chequeNumberTo: 2,
+//       //     noOfCheques: 2,
+//       //     active: true,
+//       //     updatedBy: "SYS",
+//       //     createdBy: "SYS",
+//       //   },
+//       // };
+//       data: {
+//         id: "123",
+//         message: "Saved Successfully.",
+//       },
+//     };
+//     const receivedAPIResponse = await axiosAPIClient.post("cheques/save", chequesData);
+//     // let expected = {
+//     //   error: {
+//     //     message: "bank name is mandatory.",
+//     //   },
+//     // };
+//     const received = receivedAPIResponse.data;
+//     if (received.error) {
+//       throw new Error("bank name is mandatory  " + received.error.message);
+//     } else {
+//       expect(received).toMatchObject(chequesData);
+//     }
+//     // expect(received).toEqual(expected);
+//   });

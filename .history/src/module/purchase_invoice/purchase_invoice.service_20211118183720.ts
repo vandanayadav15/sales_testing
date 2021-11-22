@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { App } from '../../common/App';
-import { Props } from '../../constants/Props';
+import { App } from 'src/common/App';
+import { Props } from 'src/constants/Props';
 import { Repository, Transaction, TransactionRepository } from 'typeorm';
 import { PurchaseItem } from '../purchase_item/purchase_item.entity';
 import { PurchaseInvoice } from './purchase_invoice.entity';

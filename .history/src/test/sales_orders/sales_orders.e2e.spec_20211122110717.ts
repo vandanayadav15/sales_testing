@@ -57,7 +57,7 @@ describe('/save (POST)', () => {
     );
     let expected = {
       data: {
-        id: 'ab6ffb3c-6744-4454-affb-2b936fba6d98',
+        // id: 'beeac73e-e21a-413f-b1a9-e274a0bfff71',
         message: 'Saved Successfully.',
       },
     };
@@ -67,12 +67,12 @@ describe('/save (POST)', () => {
   test('Assert if a new sales can be created without mandatory details', async () => {
     let expected = {
       data: {
-        id: 'ab6ffb3c-6744-4454-affb-2b936fba6d98',
+        id: 'beeac73e-e21a-413f-b1a9-e274a0bfff71',
         message: 'Saved Successfully.',
       },
     };
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesItems/save',
+      'salesOrders/save',
       salesOrdersData,
     );
     const received = receivedAPIResponse.data;
@@ -81,21 +81,5 @@ describe('/save (POST)', () => {
     } else {
       expect(received).toMatchObject(expected);
     }
-  });
-
-  describe('/update (PUT)', () => {
-    test('Should update details', async () => {
-      const receivedAPIResponse = await axiosAPIClient.put(
-        'salesItems/update',
-        salesOrdersData,
-      );
-      let expected = {
-        data: {
-          message: 'Saved Successfully.',
-        },
-      };
-      const received = receivedAPIResponse.data;
-      expect(received).toMatchObject(expected);
-    }, 10000);
   });
 });

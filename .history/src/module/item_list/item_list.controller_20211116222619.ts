@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Post, Put } from '@nestjs/common';
-import { AnyInput } from '../../common/any.input';
+import { AnyInput } from 'src/common/any.input';
 import { ItemListService } from './item_list.service';
 
 @Controller('/itemL_list')

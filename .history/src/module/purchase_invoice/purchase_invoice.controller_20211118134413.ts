@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { identity } from 'rxjs';
-import { AnyInput } from '../../common/any.input';
+import { AnyInput } from 'src/common/any.input';
 import { PurchaseInvoiceService } from './purchase_invoice.service';
 
 @Controller('/purchaseInvoice')

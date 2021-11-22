@@ -72,7 +72,7 @@ describe('/save (POST)', () => {
       },
     };
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesItems/save',
+      'salesOrders/save',
       salesOrdersData,
     );
     const received = receivedAPIResponse.data;
@@ -81,21 +81,5 @@ describe('/save (POST)', () => {
     } else {
       expect(received).toMatchObject(expected);
     }
-  });
-
-  describe('/update (PUT)', () => {
-    test('Should update details', async () => {
-      const receivedAPIResponse = await axiosAPIClient.put(
-        'salesItems/update',
-        salesOrdersData,
-      );
-      let expected = {
-        data: {
-          message: 'Saved Successfully.',
-        },
-      };
-      const received = receivedAPIResponse.data;
-      expect(received).toMatchObject(expected);
-    }, 10000);
   });
 });

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { App } from '../../common/App';
-import { Props } from '../../constants/Props';
+import { App } from 'src/common/App';
+import { Props } from 'src/constants/Props';
 import { Repository } from 'typeorm';
 import { StockItem } from './stock_item.entity';
 

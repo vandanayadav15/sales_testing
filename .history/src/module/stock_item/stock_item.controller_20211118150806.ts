@@ -1,19 +1,18 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { identity } from 'rxjs';
-import { AnyInput } from '../../common/any.input';
-import { PurchaseInvoiceService } from './purchase_invoice.service';
+import { AnyInput } from 'src/common/any.input';
+import { StockItemService } from './stock_item.service';
 
-@Controller('/purchaseInvoice')
-export class PurchaseInvoiceController {
-  constructor(private purchaseInvoiceService: PurchaseInvoiceService) {}
+@Controller('/stockItem')
+export class StockItemController {
+  constructor(private stockItemService: StockItemService) {}
   @Post('/search')
   async search(@Body() body: AnyInput) {
     try {
       let result = null;
       if (body.data && body.data.id) {
-        result = await this.purchaseInvoiceService.entity(body.data.id);
+        result = await this.stockItemService.entity(body.data.id);
       } else {
-        result = await this.purchaseInvoiceService.search(body.data);
+        result = await this.stockItemService.search(body.data);
       }
       return { data: result };
     } catch (error) {
@@ -24,7 +23,7 @@ export class PurchaseInvoiceController {
   async save(@Body() body: AnyInput) {
     try {
       let result = null;
-      result = await this.purchaseInvoiceService.save(body.data);
+      result = await this.stockItemService.save(body.data);
       return { data: result };
     } catch (error) {
       return error;
@@ -35,7 +34,7 @@ export class PurchaseInvoiceController {
   async update(@Body() body: AnyInput) {
     try {
       let result = null;
-      result = await this.purchaseInvoiceService.save(body.data);
+      result = await this.stockItemService.save(body.data);
       return { data: result };
     } catch (error) {
       return error;
@@ -47,7 +46,7 @@ export class PurchaseInvoiceController {
     try {
       let result = null;
       if (body.data && body.data.id) {
-        result = await this.purchaseInvoiceService.delete(
+        result = await this.stockItemService.delete(
           body.data ? body.data.id : '',
         );
         return { data: result };

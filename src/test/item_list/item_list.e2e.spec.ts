@@ -14,46 +14,21 @@ beforeAll(async () => {
 afterAll(async (done) => {
   done();
 });
-const salesOrdersData = {
+const itemListData = {
   data: {
-    id: '',
-    invoiceId: '',
-    discount: '0',
-    taxAmount: 0.0,
-    taxPercentage: 0.0,
-    amount: 500,
-    quantity: '1',
-    salesItems: [
-      {
-        id: '',
-        itemListId: { id: '72d0ef63-b002-47f2-998f-1f8b8c180cfd' },
-        salesOrdersId: '',
-        price: '100',
-        quantity: '1',
-        discount: '0',
-        taxPercentage: 0.0,
-        taxAmount: 0.0,
-        amount: 200,
-      },
-      {
-        id: '',
-        itemListId: { id: '72d0ef63-b002-47f2-998f-1f8b8c180cfd' },
-        salesOrdersId: '',
-        price: '100',
-        quantity: '1',
-        discount: '0',
-        taxPercentage: 0.0,
-        taxAmount: 0.0,
-        amount: 200,
-      },
-    ],
+    id: ' ',
+    name: 'vv',
+    brand: 'vv',
+    defaultPrice: '10.11',
+    description: 'vv',
+    active: true,
   },
 };
 describe('/save (POST)', () => {
-  test('Assert if a new sales can be created with mandatory details', async () => {
+  test('Assert if a new itemList can be created with mandatory details', async () => {
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesOrders/save',
-      salesOrdersData,
+      'itemList/save',
+      itemListData,
     );
     let expected = {
       data: {
@@ -64,7 +39,7 @@ describe('/save (POST)', () => {
     const received = receivedAPIResponse.data;
     expect(received).toMatchObject(expected);
   }, 10000);
-  test('Assert if a new sales can be created without mandatory details', async () => {
+  test('Assert if a new itemList can be created without mandatory details', async () => {
     let expected = {
       data: {
         id: 'ab6ffb3c-6744-4454-affb-2b936fba6d98',
@@ -72,8 +47,8 @@ describe('/save (POST)', () => {
       },
     };
     const receivedAPIResponse = await axiosAPIClient.post(
-      'salesItems/save',
-      salesOrdersData,
+      'itemList/save',
+      itemListData,
     );
     const received = receivedAPIResponse.data;
     if (received.error) {
@@ -86,8 +61,8 @@ describe('/save (POST)', () => {
   describe('/update (PUT)', () => {
     test('Should update details', async () => {
       const receivedAPIResponse = await axiosAPIClient.put(
-        'salesItems/update',
-        salesOrdersData,
+        'itemList/update',
+        itemListData,
       );
       let expected = {
         data: {
