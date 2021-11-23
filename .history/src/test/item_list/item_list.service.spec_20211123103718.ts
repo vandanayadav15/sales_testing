@@ -95,9 +95,7 @@ describe('ItemListController', () => {
 
   describe(' - Delete Method', () => {
     it('delete valid data', async () => {
-      let reqData: any = {
-        data: { id: '1b3c2aaf-d669-4e6b-8060-96a883e022e2' },
-      };
+      let reqData: any = { data: { id: '123' } };
       let data: any = {
         id: '1b3c2aaf-d669-4e6b-8060-96a883e022e2',
         message: 'Removed Successfully.',
